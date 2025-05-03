@@ -24,7 +24,8 @@ let config = {
   
   let isGameStarted = false;
   let messageToPlayer;
-  
+
+// Phaser stuff
   function preload () {
     this.load.image('background', 'assets/background.png');
     this.load.image('road', 'assets/road.png');
@@ -77,20 +78,11 @@ let config = {
       bird.setVelocityY(-160);
     }
   
-  
-  
-  
-    // Move bird upwards
+    // Bird goes up
     if(cursors.up.isDown && !hasLanded && !hasBumped) {
       bird.setVelocityY(-160);
     }
   
-    // Move bird right if game started and it hasn't landed on or bumped into something
-    // if(!hasLanded && !hasBumped) {
-    //   bird.body.velocity.x = 50;
-    // } else {
-    //   bird.body.velocity.x= 0;
-    // }
     if(isGameStarted && (!hasLanded || !hasBumped)) {
       bird.body.velocity.x = 50;
     } else {
